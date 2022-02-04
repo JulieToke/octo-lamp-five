@@ -115,3 +115,30 @@ window.addEventListener('DOMContentLoaded', () => {
   // call the displayQuiz function
   displayQuiz();
 });
+
+/*let seconds= 60;
+const time;
+function myFunction() {
+  if(seconds < 60) {
+    document.getElementById("timer").innerHTML = seconds;
+  }
+     if (seconds >0 ) {
+         seconds--;
+     } else {
+         clearInterval(time);
+         alert("Your Time is Up!");
+     }
+}
+document.getElementById("time").start = function() {
+  if(!time) {
+    time = window.setInterval(function() {
+      myFunction();
+    }, 1000);
+  }
+} 
+//When a the start button is clicked, update the timer using myFunction
+
+ //If seconds are equal or greater than 0, countdown until 1 minute has passed
+//Else, clear the timer and alert user "Your Time is Up!"
+
+document.getElementById("time").innerHTML="1:00";*/ 
