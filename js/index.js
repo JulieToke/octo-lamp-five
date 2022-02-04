@@ -22,7 +22,7 @@
 window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
 
-  start.addEventListener('click', function(e) {
+  start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
     start.style.display = 'none';
   });
@@ -30,7 +30,8 @@ window.addEventListener('DOMContentLoaded', () => {
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
-  const quizArray = [{
+  const quizArray = [
+    {
       q: 'Which is the third planet from the sun?',
       o: ['Saturn', 'Earth', 'Pluto', 'Mars'],
       a: 1, // array index 1 - so Earth is the correct answer here
@@ -74,10 +75,18 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  // submit button selector
+  const submitButton = document.querySelector('#btnSubmit');
+
+  // score selector
+  const scoreSpan = document.querySelector('#score');
+
   // Calculate the score
   const calculateScore = () => {
     let score = 0;
+    let total = 0;
     quizArray.map((quizItem, index) => {
+      total = index;
       for (let i = 0; i < 4; i++) {
         //highlight the li if it is the correct answer
         let li = `li_${index}_${i}`;
@@ -92,48 +101,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (radioElement.checked) {
           // code for task 1 goes here
-          if (quizItem.o == quizItem.a) {
-            score++;
-          }
+          score++;
         }
       }
     });
+    // display score
+    scoreSpan.innerHTML = `${score} out of ${quizArray.length}`;
   };
 
-  // submit button selector
-  const submitButton = document.querySelector('#btnSubmit');
   // Event listeners
   submitButton.addEventListener('click', calculateScore);
 
   // call the displayQuiz function
   displayQuiz();
 });
-
-
-/*let seconds= 60;
-const time;
-function myFunction() {
-  if(seconds < 60) {
-    document.getElementById("timer").innerHTML = seconds;
-  }
-     if (seconds >0 ) {
-         seconds--;
-     } else {
-         clearInterval(time);
-         alert("Your Time is Up!");
-     }
-}
-document.getElementById("time").start = function() {
-  if(!time) {
-    time = window.setInterval(function() {
-      myFunction();
-    }, 1000);
-  }
-} 
-//When a the start button is clicked, update the timer using myFunction
-
- //If seconds are equal or greater than 0, countdown until 1 minute has passed
-//Else, clear the timer and alert user "Your Time is Up!"
-
-document.getElementById("time").innerHTML="1:00";*/ 
-
