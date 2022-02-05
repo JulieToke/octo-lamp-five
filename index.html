@@ -22,7 +22,7 @@
         <div class="card-body">
           <h5 class="card-title">Test your knowledge</h5>
           <p class="card-text">Some quick description about the quiz .</p>
-          <a class="btn btn-primary">Start</a>
+          <a class="btn btn-primary start-button" id="startButton">Start</a>
         </div>
       </div>
     </div>
@@ -31,18 +31,18 @@
     <div class="container" id="quizBlock" style="display: none">
       <div class="mb-5">
         <h2>Test your knowledge</h2>
-        - Time remaining <span id="time">01:00</span>
+        - Time remaining <span id="countdown"></span>
       </div>
       <div id="quizWrap"></div>
 
       <div>
-        <button type="button" class="btn btn-primary" id="btnSubmit">
+        <button type="submit" class="btn btn-primary btn-submit" id="btnSubmit">
           Submit Quiz
         </button>
-        <button type="button" class="btn btn-primary" id="btnReset">
+        <button type="reset" class="btn btn-primary btn-reset" onclick="document.location.reload()" id="btnReset">
           Reset Quiz
         </button>
-        <span id="score"></span>
+        <span id="score">You scored -</span>
       </div>
     </div>
 
@@ -63,6 +63,6 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"
     ></script>
-    <script src="./js/index.js"></script>
+    <script src="/js/index.js"></script>
   </body>
 </html>

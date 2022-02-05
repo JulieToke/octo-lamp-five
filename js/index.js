@@ -19,12 +19,12 @@
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
 
-window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
 
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none';
+    start.style.display = 'none'; 
   });
 
   // quizArray QUESTIONS & ANSWERS
@@ -57,7 +57,7 @@ window.addEventListener('DOMContentLoaded', () => {
       a: 2,
     },
   ];
-
+  
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
     const quizWrap = document.querySelector('#quizWrap');
@@ -77,6 +77,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // submit button selector
   const submitButton = document.querySelector('#btnSubmit');
+
+  // reset button selector
+  //const resetButton = document.querySelector('#btnReset');
+
+  
 
   // score selector
   const scoreSpan = document.querySelector('#score');
@@ -101,44 +106,19 @@ window.addEventListener('DOMContentLoaded', () => {
 
         if (radioElement.checked) {
           // code for task 1 goes here
-          score++;
+          if(quizItem.a == i) {
+            score++;
+            
+          }          
         }
       }
-    });
-    // display score
-    scoreSpan.innerHTML = `${score} out of ${quizArray.length}`;
+    });    
+// display score
+  scoreSpan.innerHTML = `Your score is: ${score} out of ${quizArray.length} !`;
   };
-
   // Event listeners
   submitButton.addEventListener('click', calculateScore);
-
+  
   // call the displayQuiz function
   displayQuiz();
 });
-
-/*let seconds= 60;
-const time;
-function myFunction() {
-  if(seconds < 60) {
-    document.getElementById("timer").innerHTML = seconds;
-  }
-     if (seconds >0 ) {
-         seconds--;
-     } else {
-         clearInterval(time);
-         alert("Your Time is Up!");
-     }
-}
-document.getElementById("time").start = function() {
-  if(!time) {
-    time = window.setInterval(function() {
-      myFunction();
-    }, 1000);
-  }
-} 
-//When a the start button is clicked, update the timer using myFunction
-
- //If seconds are equal or greater than 0, countdown until 1 minute has passed
-//Else, clear the timer and alert user "Your Time is Up!"
-
-document.getElementById("time").innerHTML="1:00";*/ 
