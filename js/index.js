@@ -18,15 +18,32 @@
 
       5. Add a countdown timer - when the time is up, end the quiz, display the score and highlight the correct answers
 *************************** */
+// import { countdown } from './timer.js';
 
   window.addEventListener('DOMContentLoaded', () => {
   const start = document.querySelector('#start');
 
+  // selector time span
+  const timeSpan = document.querySelector('#time');
+
   start.addEventListener('click', function (e) {
     document.querySelector('#quizBlock').style.display = 'block';
-    start.style.display = 'none'; 
+    start.style.display = 'none';
+    // timer
+    // timer.countdown(60, timeSpan);
+    let count = 60;
+      let interval = setInterval(function(){
+      timeSpan.innerHTML=count;
+      count--;
+      if (count == 0){
+        clearInterval(interval);
+        timeSpan.innerHTML=`Time's Up!`;
+        //trigger submit event here
+        calculateScore();
+      }
+    }, 1000);
   });
-
+//start.style.display.onchange('block')
   // quizArray QUESTIONS & ANSWERS
   // q = QUESTION, o = OPTIONS, a = CORRECT ANSWER
   // Basic ideas from https://code-boxx.com/simple-javascript-quiz/
